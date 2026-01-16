@@ -1,0 +1,127 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #e6f2ff; /* soft light blue background */
+    margin: 0;
+    padding: 0 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  /* Help Container */
+  .help-container {
+    background: white;
+    max-width: 600px;
+    width: 100%;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 102, 204, 0.2);
+    text-align: center;
+  }
+  
+  /* Heading */
+  h1 {
+    color: #004080;
+    margin-bottom: 20px;
+    font-size: 2rem;
+  }
+  
+  /* Paragraph */
+  p {
+    font-size: 1.1rem;
+    color: #333;
+    margin-bottom: 25px;
+    line-height: 1.5;
+  }
+  
+  /* Resource List */
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 30px;
+    text-align: left;
+  }
+  
+  ul li {
+    background: #f0f8ff;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border-left: 5px solid #0073e6;
+    font-weight: 600;
+    font-size: 1rem;
+    color: #004080;
+    cursor: default;
+    transition: background-color 0.2s ease;
+  }
+  
+  ul li:hover {
+    background: #e0f0ff;
+  }
+  
+  ul li a {
+    color: #0073e6;
+    text-decoration: none;
+    transition: text-decoration 0.2s ease;
+  }
+  
+  ul li a:hover {
+    text-decoration: underline;
+  }
+  
+  ul li strong {
+    color: #004080;
+  }
+  
+  /* Button */
+  button {
+    background-color: #0073e6;
+    color: white;
+    padding: 14px 30px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.25s ease, transform 0.1s ease;
+  }
+  
+  button:hover {
+    background-color: #005bb5;
+  }
+  
+  button:active {
+    transform: scale(0.98);
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .help-container {
+      padding: 25px 30px;
+    }
+  
+    h1 {
+      font-size: 1.75rem;
+    }
+  
+    p {
+      font-size: 1rem;
+    }
+  
+    ul li {
+      font-size: 0.95rem;
+      padding: 12px 15px;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 12px 25px;
+    }
+  }

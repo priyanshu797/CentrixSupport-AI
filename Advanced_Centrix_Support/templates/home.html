@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Welcome - CentrixSupport</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+
+  <!-- Hero Section -->
+  <main class="hero-section">
+    <!-- Logo -->
+    <img src="{{ url_for('static', filename='img/centic.png') }}" alt="Centrix Logo" class="logo">
+
+    <!-- Title -->
+    <h1 class="title">Welcome to CentrixSupport</h1>
+    <p class="subtitle">Your intelligent assistant for smart document Q&A and emotional support</p>
+
+    <!-- CTA Buttons -->
+    <div class="cta-buttons">
+      <a href="{{ url_for('disclaimer') }}" class="btn btn-primary">🚀 Get Started</a>
+      <a href="{{ url_for('learn_more') }}" class="btn btn-secondary">🔍 Learn More</a>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
