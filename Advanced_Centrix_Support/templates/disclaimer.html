@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Disclaimer - CentrixSupport</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+</head>
+<body>
+
+  <div id="disclaimer-box" class="disclaimer-container">
+    
+    <!-- Logo + Title -->
+    <div class="header-section">
+      <img src="{{ url_for('static', filename='img/centic.png') }}" alt="Centrix Logo" class="logo">
+      <h1 class="title">Disclaimer</h1>
+    </div>
+
+    <!-- Content -->
+    <div class="content-section">
+      <p>
+        Welcome to <strong>CentrixSupport</strong>. By continuing, you acknowledge that this tool is provided for informational purposes only.
+      </p>
+      <p>
+        We do not guarantee the accuracy, completeness, or reliability of any responses. You use this service at your own risk. Always verify critical information independently.
+      </p>
+      <p>
+        This tool may analyze uploaded files, but no data is stored on our servers. Ensure you do not upload confidential or sensitive documents.
+      </p>
+    </div>
+
+    <!-- Checkbox -->
+    <div class="checkbox-section">
+      <input type="checkbox" id="agree" class="checkbox">
+      <label for="agree" class="checkbox-label">
+        I have read and agree to the terms above.
+      </label>
+    </div>
+
+    <!-- Buttons -->
+    <div class="button-section">
+      <a href="{{ url_for('home') }}" class="btn btn-back">Back</a>
+      <button
+        onclick="handleContinue(this)"
+        data-next-url="{{ url_for('index') }}"
+        class="btn btn-continue">
+        Continue
+      </button>
+    </div>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script2.js') }}"></script>
+</body>
+</html>

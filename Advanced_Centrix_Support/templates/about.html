@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Us - CentrixSupport</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style5.css') }}">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="nav-brand">
+      <img src="{{ url_for('static', filename='img/centic.png') }}" alt="Centrix Logo" class="nav-logo" />
+      <span class="nav-title">CentrixSupport</span>
+    </div>
+    <div class="nav-links">
+      <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+      <a href="{{ url_for('disclaimer') }}" class="nav-link">Disclaimer</a>
+      <a href="{{ url_for('index') }}" class="nav-link">Chat</a>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <!-- Header -->
+    <div class="page-header">
+      <h1 class="page-title">About CentrixSupport</h1>
+      <p class="page-subtitle">Smart File-Based AI Support for Everyone</p>
+    </div>
+
+    <!-- Introduction -->
+    <section class="content-section">
+      <h2 class="section-title">What is CentrixSupport?</h2>
+      <p class="section-text">
+        CentrixSupport is an intelligent assistant platform designed to help users understand and query documents, files, and text content using cutting-edge AI. Whether you're a student, professional, or researcher — you can upload a file and chat with our AI to extract insights instantly.
+      </p>
+    </section>
+
+    <!-- Features -->
+    <section class="content-section">
+      <h2 class="section-title">Key Features</h2>
+      <ul class="feature-list">
+        <li>File-based Q&A support (PDFs, text files, etc.)</li>
+        <li>Intelligent chat assistant for contextual queries</li>
+        <li>Fast and responsive UI with chat history</li>
+        <li>No data stored – your files stay private</li>
+        <li>Built for simplicity, speed, and privacy</li>
+      </ul>
+    </section>
+
+    <!-- Mission -->
+    <section class="content-section">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="section-text">
+        We believe in making AI accessible to everyone. Our mission is to empower individuals and teams to make sense of their information faster — without complex setups, steep learning curves, or security risks.
+      </p>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    &copy; {{ year }} CentrixSupport. All rights reserved.
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script5.js') }}"></script>
+</body>
+</html>
