@@ -16,7 +16,7 @@ llama-index-llms-ollama==0.1.4
 llama-index-embeddings-huggingface==0.1.4
 sentence-transformers==2.6.1
 transformers==4.39.3
-torch>=2.0.0
+torch==2.0.1 --index-url https://download.pytorch.org/whl/cpu
 
 # ==============================
 # NLP
@@ -47,3 +47,4 @@ tqdm==4.66.2
 # Optional (keep for future scaling)
 # ==============================
 uvicorn==0.29.0
+
