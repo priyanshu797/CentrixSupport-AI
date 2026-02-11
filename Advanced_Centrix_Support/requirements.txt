@@ -19,7 +19,7 @@ sentence-transformers==2.6.1
 transformers==4.39.3
 
 # 🔴 FIXED TORCH (CPU-only, Python compatible)
-torch==2.1.2 --index-url https://download.pytorch.org/whl/cpu
+torch==2.0.1
 
 # ==============================
 # NLP
@@ -46,3 +46,4 @@ openai-whisper==20231117
 # ==============================
 numpy==1.26.4
 tqdm==4.66.2
+
