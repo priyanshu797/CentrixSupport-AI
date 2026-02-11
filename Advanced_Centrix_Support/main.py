@@ -41,8 +41,13 @@ try:
     from llama_index.llms.ollama import Ollama as OllamaLLM
     from sentence_transformers import CrossEncoder
     
-    nltk.download("punkt", quiet=True)
-    nltk.download("punkt_tab", quiet=True)
+    def safe_nltk_download():
+        try:
+            nltk.data.find("tokenizers/punkt")
+        except LookupError:
+            nltk.download("punkt")
+
+    safe_nltk_download()
     RAG_AVAILABLE = True
     logging.info("RAG dependencies loaded")
 except ImportError as e:
@@ -712,7 +717,14 @@ class EnhancedRAGSystem:
 
 
 # Initialize enhanced RAG system
-rag_system = EnhancedRAGSystem() if RAG_AVAILABLE else None
+rag_system = None
+
+@app.before_first_request
+def init_rag():
+    global rag_system
+    if RAG_AVAILABLE:
+        rag_system = EnhancedRAGSystem()
+
 
 def detect_language(text: str) -> str:
     """Detect language: english, hindi, or hinglish"""
@@ -1325,5 +1337,4 @@ def health():
 
 if __name__ == '__main__':
     print("CentrixSupport - Mental Health AI Chatbot")
-
     app.run(host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
