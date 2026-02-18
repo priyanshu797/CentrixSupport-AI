@@ -10,77 +10,63 @@ The system integrates backend AI processing with a web-based frontend interface 
 
 ## 2. Core Features
 
-### 2.1 Hybrid RAG Pipeline (Highlighted Feature)
+### 2.1 Hybrid RAG Pipeline
 
 The platform implements a production-ready Hybrid RAG architecture designed for high performance and contextual accuracy.
 
-### Redis DB Semantic Cache System
-Multi-Level Cache Design
+#### Redis DB Semantic Cache System
+
+**Multi-Level Cache Design**
 
 The RAG pipeline uses a two-layer caching architecture:
 
-L1 Cache – In-Process Memory
+**L1 Cache – In-Process Memory**
 
-Implemented using OrderedDict.
+* Implemented using OrderedDict.
+* Stores most recent semantic query embeddings.
+* Provides ultra-fast retrieval for repeated queries.
+* Uses cosine similarity to detect semantically similar requests.
 
-Stores most recent semantic query embeddings.
+**L2 Cache – Redis Vector Database**
 
-Provides ultra-fast retrieval for repeated queries.
+* Uses RediSearch HNSW index.
+* Stores query, embedding, response, sources, and timestamp.
+* Performs semantic KNN search on embeddings.
+* Automatically promotes hits to L1 cache.
 
-Uses cosine similarity to detect semantically similar requests.
+**Redis Index Fields**
 
-L2 Cache – Redis Vector Database
+* query
+* response
+* sources
+* timestamp
+* embedding (FLOAT32 vector)
 
-Uses RediSearch HNSW index.
+**Key Features**
 
-Stores query, embedding, response, sources, and timestamp.
-
-Performs semantic KNN search on embeddings.
-
-Automatically promotes hits to L1 cache.
-
-Redis Index Fields:
-
-query
-
-response
-
-sources
-
-timestamp
-
-embedding (FLOAT32 vector)
-
-Key Features:
-
-Semantic cache lookup before retrieval stage.
-
-TTL-based expiration for entries.
-
-Vector similarity threshold control.
-
-Exact + semantic matching supported.
+* Semantic cache lookup before retrieval stage.
+* TTL-based expiration for entries.
+* Vector similarity threshold control.
+* Exact and semantic matching supported.
 
 #### Ranking Embedding System (Two Modes)
 
 The retrieval system uses dual-mode embedding and ranking:
 
-Mode 1 – Fast Retrieval Mode
+**Mode 1 – Fast Retrieval Mode**
 
 * Lightweight embedding search for rapid document matching.
 * Used for quick conversational queries.
 * Optimized for low latency.
 
-Mode 2 – Advanced Reranked Mode
+**Mode 2 – Advanced Reranked Mode**
 
 * Initial vector retrieval followed by reranking logic.
 * Semantic similarity scoring improves answer relevance.
 * Ideal for complex or twisted user queries.
 * Enhances contextual accuracy using embedding relationships.
 
-The pipeline combines multiple AI components into a unified retrieval system.
-
-### High-Level Flow:
+**High-Level Flow**
 
 User Query
 → Query Classification
@@ -130,30 +116,30 @@ User Query
 
 The application follows a modular, production-oriented architecture.
 
-Backend Stack:
+**Backend Stack**
 
 * Python
 * Flask
 * Redis Cache Layer
 * Embedding-based Retrieval Pipeline
 
-Machine Learning:
+**Machine Learning**
 
 * Pickle-based trained models
 * Feature encoding and prediction pipeline
 
-Frontend:
+**Frontend**
 
 * HTML
 * CSS
 * JavaScript
 
-Database:
+**Database**
 
 * SQLite (`healing.db`)
 * JSON conversation storage
 
-High-Level System Flow:
+**System Flow**
 
 Frontend Interface → Flask Server → Redis Cache Layer → Hybrid RAG Retrieval → ML Predictor → LLM Prompt Engine → Response
 
@@ -212,8 +198,6 @@ pip install -r requirements.txt
 
 Ensure Redis server is running locally or remotely.
 
-Example:
-
 ```
 redis-server
 ```
@@ -252,30 +236,30 @@ http://localhost:5000
 * Improved semantic understanding using embedding similarity.
 * Adaptive mode selection depending on query complexity.
 
-### When Each Mode Activates
+### Mode Activation
 
-Fast Retrieval Mode:
+**Fast Retrieval Mode**
 
 * Simple or direct queries.
 * Cached or short conversational requests.
 
-Advanced Reranked Mode:
+**Advanced Reranked Mode**
 
 * Multi-context queries.
 * Emotion-based or analytical prompts.
-* Twisted or complex sentence structures.
+* Complex sentence structures.
 
 ---
 
 ## 8. Machine Learning Components
 
-Model Files:
+**Model Files**
 
 * `mental_health_model.pkl`
 * `label_encoders.pkl`
 * `feature_names.pkl`
 
-Prediction Flow:
+**Prediction Flow**
 
 1. User input processed.
 2. Features encoded.
@@ -288,7 +272,7 @@ Prediction Flow:
 
 * Conversations stored as JSON.
 * SQLite database manages structured records.
-* Training dataset included for model reference.
+* Training dataset included for reference.
 
 ---
 
