@@ -14,3 +14,6 @@ python-docx
 Pillow
 numpy
 tqdm
+regex
+pytesseract
+groq
