@@ -1,0 +1,46 @@
+# ==============================
+# Core Backend
+# ==============================
+Flask
+Flask-Cors
+gunicorn
+python-dotenv
+requests
+
+# ==============================
+# AI / RAG
+# ==============================
+llama-index
+llama-index-llms-groq
+llama-index-llms-ollama
+llama-index-embeddings-huggingface
+
+sentence-transformers
+transformers
+torch
+
+# ==============================
+# NLP
+# ==============================
+nltk
+regex
+
+# ==============================
+# File Processing
+# ==============================
+pdfplumber
+python-docx
+Pillow
+pytesseract
+opencv-python-headless
+
+# ==============================
+# Audio (Whisper)
+# ==============================
+openai-whisper
+
+# ==============================
+# Data
+# ==============================
+numpy
+tqdm

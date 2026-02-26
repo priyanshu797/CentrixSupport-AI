@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "hlo"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello. I'm here to support health and wellness topics only. I'm unable to help with this request. Please feel free to ask a question related to physical health, mental well-being, or self-care."
+  }
+]

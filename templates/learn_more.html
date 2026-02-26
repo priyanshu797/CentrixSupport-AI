@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Learn More - CentrixSupport</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/centic.png') }}" type="image/png">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="header-logo">
+        <img src="{{ url_for('static', filename='img/centic.png') }}" alt="CentrixSupport Logo" class="logo-img">
+        <h1 class="logo-text">CentrixSupport</h1>
+      </div>
+      <a href="{{ url_for('home') }}" class="back-link">← Back to Home</a>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+
+    <section class="intro-section">
+      <h2 class="intro-title">How CentrixSupport Helps You</h2>
+      <p class="intro-text">
+        CentrixSupport is your intelligent mental wellness assistant and smart document Q&A bot. Whether you're exploring insights from uploaded files or seeking emotional guidance, it's designed to assist you with clarity, empathy, and efficiency.
+      </p>
+    </section>
+
+    <section class="features-grid">
+      <!-- Feature 1 -->
+      <div class="feature-card">
+        <h3 class="feature-title">🧠 AI-Powered Chat Support</h3>
+        <p class="feature-text">Ask any question—mental health, personal development, or file-related. Powered by Groq's LLaMA 3, it provides fast and intelligent answers.</p>
+      </div>
+
+      <!-- Feature 2 -->
+      <div class="feature-card">
+        <h3 class="feature-title">📄 Smart Document Analysis</h3>
+        <p class="feature-text">Upload PDFs, DOCX, or text files. CentrixSupport extracts meaningful content and answers questions using context-aware RAG techniques.</p>
+      </div>
+
+      <!-- Feature 3 -->
+      <div class="feature-card">
+        <h3 class="feature-title">❤️ Emotional Risk Detection</h3>
+        <p class="feature-text">Integrated emotion and risk detection ensures users experiencing distress are gently guided with helpline support.</p>
+      </div>
+
+      <!-- Feature 4 -->
+      <div class="feature-card">
+        <h3 class="feature-title">🛠️ Self-Care Toolkit</h3>
+        <p class="feature-text">Includes guided mental exercises, check-ins, and task management to build resilience and structure.</p>
+      </div>
+    </section>
+
+    <section class="cta-section">
+      <a href="{{ url_for('disclaimer') }}" class="cta-button">🚀 Get Started</a>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2025 CentrixSupport. All rights reserved.
+  </footer>
+
+  <script src="{{ url_for('static', filename='js/script1.js') }}"></script>
+</body>
+</html>

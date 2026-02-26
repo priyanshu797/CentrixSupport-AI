@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Get Help - Mental Health AI Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style3.css') }}">
+</head>
+<body>
+  <div class="help-container">
+    <h1>Get Help Now</h1>
+    <p>If you or someone you know is struggling, remember you are not alone.  
+       Here are some trusted resources to support your mental health:</p>
+    <ul>
+      <li>
+        National Suicide Prevention Lifeline:  
+        <strong>1800-123-4567</strong>  
+        (Available 24/7)
+      </li>
+      <li>
+        <a href="https://www.mentalhealth.gov/get-help/immediate-help" target="_blank" rel="noopener noreferrer">
+          Immediate Help & Crisis Resources
+        </a>
+      </li>
+      <li>
+        <a href="https://www.who.int/health-topics/mental-health" target="_blank" rel="noopener noreferrer">
+          World Health Organization - Mental Health
+        </a>
+      </li>
+      <li>
+        Local Mental Health Clinics and Support Groups - Check your community listings.
+      </li>
+    </ul>
+
+    <a href="{{ url_for('index') }}" class="back-button">⬅ Back to Chat</a>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script3.js') }}"></script>
+</body>
+</html>

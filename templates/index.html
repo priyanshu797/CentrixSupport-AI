@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Get Help - CentrixSupport</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style7.css') }}">
+</head>
+<body class="page">
+
+  <!-- Sidebar -->
+  <div id="historySidebar" class="sidebar hidden">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <h3 style="font-size: 18px; font-weight: 600;">Chat History</h3>
+      <button id="newChat" style="background: #0f766e; color: white; padding: 6px 12px; border-radius: 8px; border: none; cursor: pointer; font-size: 14px;">+ New Chat</button>
+    </div>
+    <button id="toggleHistory" style="background: #0d9488; color: white; padding: 8px 12px; border-radius: 8px; border: none; cursor: pointer; width: 100%; margin-bottom: 12px;">Close History</button>
+    <div id="historyList" class="space-y-2"></div>
+  </div>
+
+  <!-- Main Layout -->
+  <div id="mainLayout" class="transition-all">
+
+    <!-- Navbar -->
+    <nav class="navbar">
+      <div class="navbar-left">
+        <button id="toggleHistory" style="background: transparent; border: none; color: white; cursor: pointer; margin-right: 8px; font-size: 20px;">☰</button>
+        <img src="{{ url_for('static', filename='img/centic.png') }}" class="logo" alt="CentrixSupport Logo" />
+        <span class="brand">CentrixSupport</span>
+      </div>
+    
+      <div class="nav-links">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('index') }}">Chat</a>
+        <a href="{{ url_for('about') }}">About</a>
+        <a href="{{ url_for('resource') }}">Resources</a>
+        <a href="{{ url_for('contact') }}">Contact</a>
+        <a href="{{ url_for('help_page') }}" class="nav-cta">Get Help</a>
+      </div>
+    </nav>
+
+    <!-- Chat Area -->
+    <main id="chatMain" class="chat-main">
+      <h1 class="page-title">Talk to Centrix Bot</h1>
+
+      <!-- File Upload -->
+      <form id="uploadForm" class="mb-4 flex flex-col md:flex-row md:items-center gap-4">
+        <input type="file" id="fileInput" class="bg-white px-4 py-2 rounded border border-teal-300" multiple accept=".pdf,.doc,.docx,.txt,.png,.jpg,.jpeg" />
+        <button type="submit" class="bg-teal-700 text-white px-4 py-2 rounded hover:bg-teal-600">📤 Upload File</button>
+        <div id="uploadStatus"></div>
+      </form>
+      <ul id="fileList" class="mt-2 space-y-1 text-sm text-gray-800"></ul>
+
+      <!-- Chat Box -->
+      <div id="chatBox" class="bg-white rounded-xl shadow-inner p-4 space-y-4 max-h-[60vh] md:max-h-[70vh] overflow-y-auto">
+        <!-- Initial bot message -->
+        <div class="text-left">
+          <div class="inline-block bot-message animate-fade-in">
+            <p>Hi there! 👋 How can I support you today?</p>
+            <div class="message-footer">
+              <span class="timestamp">Ready to help</span>
+              <button class="icon-btn" onclick="copyMessage(this)">📋</button>
+              <button class="icon-btn" onclick="speakMessage(this)">🔊</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Chat Input Wrapper -->
+      <div id="chatInputWrapper" class="chat-input-wrapper">
+        <form id="chatForm" class="chat-form">
+          <button type="button" id="micBtn" style="background: transparent; border: 2px solid #0f766e; padding: 10px; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; width: 44px; height: 44px;">
+            <img id="micIcon" src="https://img.icons8.com/material-sharp/24/microphone--v1.png" width="24" height="24" alt="Microphone" />
+          </button>
+          <input
+            type="text"
+            id="userInput"
+            class="flex-1 px-4 py-2 border-2 border-teal-500 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
+            placeholder="Ask me anything..."
+            autocomplete="off"
+          />
+          <button type="submit" class="bg-teal-700 text-white px-5 py-2 rounded-full">
+            Send
+          </button>
+        </form>
+      </div>
+    </main>
+
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script7.js') }}"></script>
+</body>
+</html>

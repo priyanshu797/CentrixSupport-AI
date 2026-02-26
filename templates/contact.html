@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Contact - Mental Health AI Chatbot</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style4.css') }}">
+</head>
+<body>
+  <div class="contact-container">
+    <!-- Logo -->
+    <img src="{{ url_for('static', filename='img/centic.png') }}" 
+         alt="Centrix Logo" 
+         class="logo">
+
+    <h1>Contact Us</h1>
+    <form id="contactForm" method="POST" action="/send_email">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send</button>
+    </form>
+  </div>
+
+  <script src="{{ url_for('static', filename='js/script4.js') }}"></script>
+</body>
+</html>

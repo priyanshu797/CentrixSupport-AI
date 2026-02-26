@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Resources - CentrixSupport</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style6.css') }}">
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="header">
+    <div class="header-brand">
+      <img src="{{ url_for('static', filename='img/streamly.png') }}" alt="Centrix Logo" class="logo" />
+      <h1 class="header-title">CentrixSupport</h1>
+    </div>
+    <a href="{{ url_for('index') }}" class="back-button">⬅ Back to Chat</a>
+  </header>
+
+  <!-- Main Section -->
+  <main class="main-content">
+    <div class="page-intro">
+      <h2 class="page-title">📚 Resources</h2>
+      <p class="page-description">Helpful documentation, tools, and external references for deeper learning and support.</p>
+    </div>
+
+    <!-- Resource List -->
+    <div class="resources-grid">
+      <div class="resource-card">
+        <h3 class="resource-title">📄 OpenAI Documentation</h3>
+        <p class="resource-description">Official docs on models, API, and fine-tuning.</p>
+        <a href="https://console.groq.com/docs/overview" target="_blank" class="resource-link">Visit →</a>
+      </div>
+
+      <div class="resource-card">
+        <h3 class="resource-title">🔧 LangChain</h3>
+        <p class="resource-description">Framework for building applications with LLMs.</p>
+        <a href="https://docs.langchain.com" target="_blank" class="resource-link">Visit →</a>
+      </div>
+
+      <div class="resource-card">
+        <h3 class="resource-title">📦 Hugging Face Transformers</h3>
+        <p class="resource-description">State-of-the-art models and NLP libraries.</p>
+        <a href="https://huggingface.co/docs/transformers/index" target="_blank" class="resource-link">Visit →</a>
+      </div>
+
+      <div class="resource-card">
+        <h3 class="resource-title">🧠 Vector Databases</h3>
+        <p class="resource-description">Intro to vector stores like Pinecone, Chroma, etc.</p>
+        <a href="https://www.pinecone.io/learn/vector-database/" target="_blank" class="resource-link">Visit →</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="{{ url_for('static', filename='js/script6.js') }}"></script>
+</body>
+</html>

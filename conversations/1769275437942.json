@@ -1,0 +1,10 @@
+[
+  {
+    "role": "user",
+    "content": "hello"
+  },
+  {
+    "role": "assistant",
+    "content": "Hello. I'm here to support you with any health-related concerns or questions you may have. How are you feeling today? Is there something specific on your mind that you'd like to talk about, such as your physical health, mental well-being, or self-care?"
+  }
+]

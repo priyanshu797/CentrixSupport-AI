@@ -1,0 +1,13 @@
+project’s future upgrade:
+
+1. Domain-Specific Model Fine-Tuning
+-> CentrixSupport AI to give more accurate, consistent, expert-level and Specific responses instead of relying only on general-purpose models.
+
+2. VideoRAG for Long-Form Video Understanding
+-> users to chat with long videos like lectures, meetings, or therapy sessions and ask detailed questions across hours of content.
+
+3. Redis-Based Distributed Caching
+-> It will replace local caching to improve performance, support multiple users simultaneously, and make the system scalable for production deployment.
+
+4. Adaptive Prompting and Behavior Control
+-> It will make responses safer, more empathetic, and more relevant, especially in sensitive conversations and complex queries.
