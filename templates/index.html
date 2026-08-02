@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Get Help - CentrixSupport</title>
-  <link rel="stylesheet" href="{{ url_for('static', filename='css/style7.css') }}">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style7.css', v='20260802-fixed-layout') }}">
 </head>
 <body class="page">
 
@@ -24,7 +24,7 @@
     <!-- Navbar -->
     <nav class="navbar">
       <div class="navbar-left">
-        <button id="toggleHistory" style="background: transparent; border: none; color: white; cursor: pointer; margin-right: 8px; font-size: 20px;">☰</button>
+        <button id="toggleHistoryBtn" style="background: transparent; border: none; color: white; cursor: pointer; margin-right: 8px; font-size: 20px;">☰</button>
         <img src="{{ url_for('static', filename='img/centic.png') }}" class="logo" alt="CentrixSupport Logo" />
         <span class="brand">CentrixSupport</span>
       </div>
@@ -41,6 +41,7 @@
 
     <!-- Chat Area -->
     <main id="chatMain" class="chat-main">
+      <div class="chat-main-inner">
       <h1 class="page-title">Talk to Centrix Bot</h1>
 
       <!-- File Upload -->
@@ -78,16 +79,18 @@
             class="flex-1 px-4 py-2 border-2 border-teal-500 rounded-full shadow-sm focus:outline-none focus:ring-2 focus:ring-teal-500"
             placeholder="Ask me anything..."
             autocomplete="off"
+            autofocus
           />
           <button type="submit" class="bg-teal-700 text-white px-5 py-2 rounded-full">
             Send
           </button>
         </form>
       </div>
+    </div><!-- end chat-main-inner -->
     </main>
 
   </div>
 
-  <script src="{{ url_for('static', filename='js/script7.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/script7.js', v='20260802-file-link') }}"></script>
 </body>
 </html>
