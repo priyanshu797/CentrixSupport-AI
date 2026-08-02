@@ -7,16 +7,22 @@
 
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  height: 100%;
+  overflow: hidden;
 }
 
 .page {
   background: #ccfbf1;
-  min-height: 100vh;
-  overflow-x: hidden;
+  height: 100vh;
+  height: 100dvh;
+  min-height: 0;
+  overflow: hidden;
   position: relative;
 }
 
 html {
+  height: 100%;
+  overflow: hidden;
   scroll-behavior: smooth;
 }
 
@@ -24,7 +30,8 @@ html {
 .navbar {
   background-color: #115e59;
   color: white;
-  padding: 16px;
+  height: 64px;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -115,6 +122,15 @@ html {
   transition: margin-left 0.3s ease;
 }
 
+.chat-main-inner {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+  padding: 24px 32px 16px;
+}
+
 .chat-main.with-sidebar {
   margin-left: 260px;
 }
@@ -124,11 +140,20 @@ html {
   font-weight: 700;
   color: #134e4a;
   text-align: center;
-  margin-bottom: 24px;
+  flex: 0 0 auto;
+  margin-bottom: 12px;
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
 /* ====== FILE UPLOAD ====== */
+#uploadForm {
+  flex: 0 0 auto;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
 .mb-4 {
   margin-bottom: 16px;
 }
@@ -185,11 +210,115 @@ html {
 
 #uploadStatus {
   font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0f766e;
+  min-width: 0;
+  max-width: 100%;
+}
+
+.upload-progress {
+  --upload-progress: 0deg;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  position: relative;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(#0f766e var(--upload-progress), #d1fae5 0);
+  transition: background 0.2s ease;
+}
+
+.upload-progress::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: #ccfbf1;
+}
+
+.upload-progress span {
+  position: relative;
+  z-index: 1;
+  color: #115e59;
+  font-size: 9px;
+  font-weight: 700;
+}
+
+.upload-progress-label {
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.upload-ready {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #0f766e;
+  line-height: 1.4;
+}
+
+.upload-ready strong {
+  color: #15803d;
+}
+
+.upload-complete-ring {
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  display: grid;
+  place-items: center;
+  border: 4px solid #0f766e;
+  border-radius: 50%;
+  color: #0f766e;
+  background: #ccfbf1;
+  font-size: 15px;
+  font-weight: 800;
 }
 
 #fileList {
+  flex: 0 0 auto;
   list-style: none;
-  margin-top: 8px;
+  min-height: 0;
+  max-height: 38px;
+  margin: 2px 0 6px;
+  overflow: hidden;
+}
+
+.active-document-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  max-width: min(100%, 440px);
+  padding: 6px 10px;
+  border: 1px solid #5eead4;
+  border-radius: 999px;
+  color: #115e59;
+  background: #ccfbf1;
+  font-size: 13px;
+}
+
+.active-document-item span:last-child {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.active-document-item a {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  min-width: 0;
+  color: inherit;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.active-document-item a:hover {
+  color: #064e3b;
+  text-decoration: underline;
 }
 
 /* ====== CHAT BOX ====== */
@@ -197,8 +326,10 @@ html {
   background: white;
   border-radius: 16px;
   box-shadow: inset 0 2px 8px rgba(0,0,0,0.05);
-  padding: 16px;
-  max-height: 60vh;
+  padding: 20px;
+  flex: 1 1 auto;
+  min-height: 0;
+  max-height: none !important;
   overflow-y: auto;
   margin-bottom: 16px;
   scroll-behavior: smooth;
@@ -225,10 +356,10 @@ html {
 /* ====== MESSAGE STYLES ====== */
 .bot-message, 
 .user-message {
-  padding: 12px 16px;
+  padding: 14px 18px;
   border-radius: 16px;
   margin: 10px 0;
-  max-width: 75%;
+  max-width: 85%;
   word-wrap: break-word;
   word-break: break-word;
   font-size: 15px;
@@ -238,17 +369,17 @@ html {
 }
 
 .bot-message {
-  background: linear-gradient(135deg, #a0f5e2 0%, #8ee4d4 100%);
+  background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%);
   color: #064e3b;
-  border-left: 4px solid #0f766e;
+  border-left: 4px solid #14b8a6;
   margin-right: auto;
 }
 
 .user-message {
-  background: linear-gradient(135deg, #0f766e 0%, #0d6558 100%);
-  color: white;
+  background: linear-gradient(135deg, #ccfbf1 0%, #99f6e4 100%);
+  color: #064e3b;
   margin-left: auto;
-  border-right: 4px solid #064e3b;
+  border-right: 4px solid #14b8a6;
   text-align: left;
 }
 
@@ -264,9 +395,14 @@ html {
   display: inline-block;
 }
 
-/* Better formatting for bot responses */
+/* Structured formatting for LLM and RAG responses */
+.message-content {
+  display: block;
+  white-space: normal;
+}
+
 .bot-message p {
-  margin-bottom: 8px;
+  margin: 0 0 12px;
 }
 
 .bot-message p:last-child {
@@ -275,12 +411,39 @@ html {
 
 .bot-message ul, 
 .bot-message ol {
-  margin: 8px 0;
-  padding-left: 20px;
+  margin: 8px 0 14px;
+  padding-left: 24px;
 }
 
 .bot-message li {
-  margin: 4px 0;
+  margin: 6px 0;
+  padding-left: 3px;
+}
+
+.bot-message h2,
+.bot-message h3,
+.bot-message h4 {
+  color: #065f46;
+  line-height: 1.3;
+  margin: 18px 0 8px;
+}
+
+.bot-message h2:first-child,
+.bot-message h3:first-child,
+.bot-message h4:first-child {
+  margin-top: 0;
+}
+
+.bot-message h2 { font-size: 18px; }
+.bot-message h3 { font-size: 16px; }
+.bot-message h4 { font-size: 15px; }
+
+.bot-message blockquote {
+  margin: 12px 0;
+  padding: 8px 12px;
+  border-left: 3px solid #5eead4;
+  background: rgba(255, 255, 255, 0.55);
+  border-radius: 0 8px 8px 0;
 }
 
 .bot-message strong {
@@ -294,6 +457,43 @@ html {
   border-radius: 4px;
   font-family: 'Courier New', monospace;
   font-size: 14px;
+}
+
+.bot-message pre {
+  margin: 12px 0;
+  padding: 12px;
+  overflow-x: auto;
+  color: #e6fffa;
+  background: #123c36;
+  border-radius: 10px;
+  white-space: pre;
+}
+
+.bot-message pre code {
+  padding: 0;
+  color: inherit;
+  background: transparent;
+}
+
+.response-label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-bottom: 10px;
+  color: #0f766e;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.response-label::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  background: #14b8a6;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px rgba(20, 184, 166, 0.15);
 }
 
 /* ====== EMOTION BADGES ====== */
@@ -368,6 +568,12 @@ html {
   border: 1px dashed #0f766e;
 }
 
+.bot-message .file-indicator {
+  background: rgba(15, 118, 110, 0.08);
+  color: #0f766e;
+  border-color: rgba(15, 118, 110, 0.45);
+}
+
 /* ====== MESSAGE FOOTER ====== */
 .message-footer {
   display: flex;
@@ -381,8 +587,13 @@ html {
 }
 
 .user-message .message-footer {
-  border-top-color: rgba(255,255,255,0.2);
-  color: rgba(255,255,255,0.7);
+  border-top-color: rgba(6,78,59,0.15);
+  color: rgba(6,78,59,0.68);
+}
+
+.bot-message .message-footer {
+  border-top-color: rgba(6,78,59,0.15);
+  color: rgba(6,78,59,0.68);
 }
 
 .timestamp {
@@ -413,11 +624,11 @@ html {
 }
 
 .user-message .icon-btn {
-  color: rgba(255,255,255,0.8);
+  color: #0f766e;
 }
 
 .user-message .icon-btn:hover {
-  color: white;
+  color: #064e3b;
 }
 
 /* ====== CRISIS ALERT ====== */
@@ -435,10 +646,11 @@ html {
 
 /* ====== CHAT INPUT WRAPPER ====== */
 .chat-input-wrapper {
+  flex: 0 0 auto;
   width: 100%;
   max-width: 100%;
   margin: 0 auto;
-  padding: 16px 0;
+  padding: 10px 0 0;
 }
 
 .chat-form {
@@ -558,8 +770,8 @@ html {
     padding-right: 32px;
   }
   
-  .chat-main {
-    padding: 24px 96px;
+  .chat-main-inner {
+    padding: 24px 96px 16px;
   }
   
   #chatBox {
@@ -582,6 +794,7 @@ html {
 /* Mobile (max 640px) */
 @media (max-width: 640px) {
   .navbar {
+    height: 56px;
     padding: 12px;
   }
   
@@ -608,8 +821,12 @@ html {
   }
   
   .chat-main {
-    padding: 16px;
     margin-top: 56px;
+    height: calc(100dvh - 56px);
+  }
+
+  .chat-main-inner {
+    padding: 10px 12px 76px;
   }
   
   .chat-main.with-sidebar {
@@ -622,8 +839,26 @@ html {
   }
   
   #chatBox {
-    max-height: calc(100vh - 280px);
+    min-height: 0;
+    max-height: none !important;
     padding: 12px;
+  }
+
+  #uploadForm {
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+
+  #fileList {
+    margin-bottom: 4px;
+  }
+
+  .upload-ready span:last-child {
+    display: block;
+    max-width: calc(100vw - 78px);
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   
   .bot-message,
@@ -711,6 +946,69 @@ html {
   
   .bot-message,
   .user-message {
-    max-width: 75%;
+    max-width: 85%;
+  }
+}
+
+
+/* =====================================================================
+   BUFFERED RESPONSE STREAMING
+   ===================================================================== */
+
+/* ── Active streaming bubble ──────────────────────────────────────────
+   A clean left-border pulse signals "writing in progress" without
+   blurring or softening any text.                                       */
+.bot-message.streaming-active {
+  border-left: 4px solid rgba(20, 184, 166, 0.8);
+  animation: stream-border-pulse 1.4s ease-in-out infinite;
+  transition: border-color 0.3s ease;
+}
+
+@keyframes stream-border-pulse {
+  0%, 100% { border-left-color: rgba(52, 211, 153, 0.6); }
+  50%       { border-left-color: rgba(13, 148, 136, 1); }
+}
+
+/* ── Live text — always sharp ─────────────────────────────────────────
+   No blur, no text-shadow, no filter. Text must be crisp at all times. */
+.stream-content {
+  display: block;
+  text-shadow: none;
+  filter: none;
+}
+
+/* ── Blinking cursor ──────────────────────────────────────────────────
+   Thin teal bar placed right after the last word.                       */
+.stream-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.1em;
+  background: #0f766e;
+  border-radius: 1px;
+  margin-left: 2px;
+  vertical-align: text-bottom;
+  animation: cursor-blink 0.85s step-start infinite;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+
+/* ── Wrapper fade-in for the bubble itself ────────────────────────────
+   Only the bubble container fades in once — not individual tokens.     */
+.streaming-wrapper {
+  animation: fadeIn 0.2s ease-in-out;
+}
+
+/* Long answers remain comfortably readable without spanning the full page. */
+.bot-message {
+  max-width: min(88%, 960px);
+}
+
+@media (max-width: 640px) {
+  .bot-message {
+    max-width: 94%;
+    padding: 12px 14px;
   }
 }
